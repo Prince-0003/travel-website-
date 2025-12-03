@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Travel Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h2 class="logo">Travel Explorer</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact">
+    <h1>Contact Us</h1>
+    <p>Have questions? Want to book a trip? Send us a message and our team will get back within 1–2 business days.</p>
+
+    <form id="contactForm" onsubmit="submitForm(event)">
+      <label>Name</label>
+      <input id="cname" type="text" placeholder="Your name" required />
+
+      <label>Email</label>
+      <input id="cemail" type="email" placeholder="your@email.com" required />
+
+      <label>Message</label>
+      <textarea id="cmessage" placeholder="Write your message..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Travel Explorer. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function submitForm(e) {
+      e.preventDefault();
+      const name = document.getElementById('cname').value.trim();
+      const email = document.getElementById('cemail').value.trim();
+      const msg = document.getElementById('cmessage').value.trim();
+      if (!name || !email || !msg) return alert('Please fill all fields.');
+      alert('Thanks, ' + name.split(' ')[0] + '! Your message has been received. We will reply to ' + email + '.');
+      document.getElementById('contactForm').reset();
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
